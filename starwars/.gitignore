@@ -1,7 +1,11 @@
 .idea
+../.idea/
 .vscode
 
 **/*.pyc
 
 venv
+venv-3.10
+db.sqlite3
+
 

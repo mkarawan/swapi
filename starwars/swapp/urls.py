@@ -7,4 +7,5 @@ app_name = 'swapp'
 urlpatterns = [
     path('', views.get_swapi, name='start'),
     path('category/<str:cat_name>/', views.get_swapi_category, name='category'),
+    path('category/<str:cat_name>/<int:id>', views.get_swapi_details, name='details'),
 ]

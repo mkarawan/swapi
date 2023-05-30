@@ -4,9 +4,10 @@
 {% block container %}
 {% for item in category %}
     {% if item.title %}
-    <li>{{ item.title }}</li>
+    <a href="{% url 'swapp:details' cat_name forloop.counter %}"><li>{{ item.title }}</li></a>
         {% else %}
-    <li>{{ item.name }}</li>
+    <a href="{% url 'swapp:details' cat_name forloop.counter %}"><li>{{ item.name }}</li></a>
     {% endif %}
-    {% endfor %}
+{% endfor %}
+
 {% endblock %}

@@ -4,10 +4,10 @@ from django.views import View
 from django.views.generic import TemplateView
 import json
 from django.http import HttpResponseServerError
+from django.views.decorators.cache import cache_page
 
 
-
-
+@cache_page(60 * 15)
 def get_swapi(request):
     url = 'https://swapi.dev/api/'
     response = requests.get(url)
@@ -25,7 +25,7 @@ def get_swapi(request):
     else:
         return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
 
-
+@cache_page(60 * 15)
 def get_swapi_category(request, cat_name):
     url = f'https://swapi.dev/api/{cat_name}/'
     response = requests.get(url)
@@ -39,5 +39,15 @@ def get_swapi_category(request, cat_name):
     else:
         return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
 
-def get_swapi_details(request, id):
-    pass
+
+@cache_page(60 * 15)
+def get_swapi_details(request, cat_name, id):
+    url = f'https://swapi.dev/api/{cat_name}/{id}'
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        context = {'results': [(key, value) for key, value in data.items()], 'cat_name': cat_name, 'id': id}
+        return render(request, 'swapp/details.html', context)
+    else:
+        return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")

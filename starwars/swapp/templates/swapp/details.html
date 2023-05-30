@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+    {% for key, value in results %}
+    <li>{{ key }} : {{ value }}</li>
+
+    {% endfor %}
+{% endblock %}
