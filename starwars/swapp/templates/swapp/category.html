@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+{% for item in category %}
+    {% if item.title %}
+    <li>{{ item.title }}</li>
+        {% else %}
+    <li>{{ item.name }}</li>
+    {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block container %}
+    <h1>STAR WARS KNOWLEDGE BASE</h1>
+
+    <ul>
+{% for cat in categories %}
+    <li><a href="{% url 'swapp:category' cat %}">{{ cat }}</a></li>
+    {% endfor %}
+
+</ul>
+{% endblock %}
