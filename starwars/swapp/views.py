@@ -1,4 +1,5 @@
 import re
+from urllib.parse import urljoin
 
 import requests as requests
 from django.shortcuts import render, redirect
@@ -24,17 +25,19 @@ def get_swapi(request):
 @cache_page(60 * 15)
 def get_swapi_category(request, cat_name):
     url = f'https://swapi.dev/api/{cat_name}/'
+    page = request.GET.get('page')
+    if page:
+        url = page
     response = requests.get(url)
-
     if response.status_code == 200:
         data = response.json()
         category_results = data['results']
-        context = {'category': category_results, 'cat_name': cat_name}
+        next_page = data.get('next')
+        previous = data.get('previous')
+        context = {'category': category_results, 'cat_name': cat_name, 'next': next_page, 'previous': previous}
         return render(request, 'swapp/category.html', context)
     else:
         return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
-
-
 @cache_page(60 * 15)
 def get_swapi_details(request, cat_name, url_number):
     url = f'https://swapi.dev/api/{cat_name}/{url_number}'

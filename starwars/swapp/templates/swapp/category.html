@@ -3,6 +3,14 @@
 {% load custom_filters %}
 
 {% block container %}
+<form action="{% url 'swapp:category' cat_name %}" method="get">
+  {% if previous %}
+    <button type="submit" name="page" value="{{ previous }}">Previous</button>
+  {% endif %}
+  {% if next %}
+    <button type="submit" name="page" value="{{ next }}">Next</button>
+  {% endif %}
+</form>
 {% for item in category %}
     {% if item.title %}
     <a href="{% url 'swapp:details' cat_name item.url|extract_id %}"><li>{{ item.title }}</li></a>
