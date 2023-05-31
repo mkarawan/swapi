@@ -3,6 +3,11 @@
 {% load custom_filters %}
 
 {% block container %}
+    <a class="category_back">
+        <a href="{% url 'swapp:start' %}"><button>
+        ⇦Back</button></a>
+            </div>
+
 <form action="{% url 'swapp:category' cat_name %}" method="get">
   {% if previous %}
     <button type="submit" name="page" value="{{ previous }}">Previous</button>
@@ -11,6 +16,16 @@
     <button type="submit" name="page" value="{{ next }}">Next</button>
   {% endif %}
 </form>
+
+
+<form action="{% url 'swapp:category' cat_name %}" method="get">
+  <input type="text" name="search" placeholder="Search...">
+  <button type="submit">Search</button>
+</form>
+{% if search_query %}
+  <p>Search results for: {{ search_query }}</p>
+{% endif %}
+
 {% for item in category %}
     {% if item.title %}
     <a href="{% url 'swapp:details' cat_name item.url|extract_id %}"><li>{{ item.title }}</li></a>

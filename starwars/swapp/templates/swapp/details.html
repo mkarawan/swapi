@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block container %}
+        <div class="back">
+        <button id="goback">
+        ⇦Back</button>
+            </div>
     {% for key, value in results %}
     <li>{{ key }} : {{ value }}</li>
 
