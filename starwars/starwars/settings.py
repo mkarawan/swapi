@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'swapp.apps.SwappConfig',
 
+    'swapp.templatetags.custom_filters'
+
 ]
 
 MIDDLEWARE = [

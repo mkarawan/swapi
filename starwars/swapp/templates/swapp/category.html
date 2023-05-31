@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
 
 {% block container %}
 {% for item in category %}
     {% if item.title %}
-    <li>{{ item.title }}</li>
+    <a href="{% url 'swapp:details' cat_name item.url|extract_id %}"><li>{{ item.title }}</li></a>
         {% else %}
-    <li>{{ item.name }}</li>
+    <a href="{% url 'swapp:details' cat_name item.url|extract_id %}"><li>{{ item.name }}</li></a>
     {% endif %}
-    {% endfor %}
+{% endfor %}
+
 {% endblock %}
