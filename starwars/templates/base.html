@@ -8,9 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>STAR WARS 🌌</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
+{% block opening %}
+{% endblock %}
+    <div class="star-wars"><h1>STAR WARS KNOWLEDGE BASE</h1></div>
 {% block container %}
+
 {% endblock %}
 <script src="{% static 'scripts/script.js' %}"></script>
 </body>

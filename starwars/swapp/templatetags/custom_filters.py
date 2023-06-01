@@ -1,3 +1,5 @@
+import itertools
+
 from django import template
 import re
 
@@ -15,4 +17,18 @@ def extract_id(url):
         return None
 
 
+@register.filter(name='sliced_dict')
+def sliced_dict(dictionary):
+    sliced_dictionary = dict(itertools.islice(dictionary.items(), 1, 5))
+    return list(sliced_dictionary.items())
+
+
+@register.filter(name='sliced_dict_films')
+def sliced_dict_films(dictionary):
+    sliced_dictionary = dict(itertools.islice(dictionary.items(), 2, 6))
+    return list(sliced_dictionary.items())
+
+
 register.filter("extract_id", extract_id)
+register.filter("sliced_dict", sliced_dict)
+register.filter("sliced_dict", sliced_dict_films)

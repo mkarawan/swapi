@@ -2,13 +2,17 @@
 {% load static %}
 
 
-{% block container %}
-    <h1>STAR WARS KNOWLEDGE BASE</h1>
+    {% block opening %}
+        <div class="opening"> <h3>A long time ago in a galaxy far, far away…</h3></div>
+    {% endblock %}
 
+{% block container %}
+    <div class="width">
     <ul>
 {% for cat in categories %}
-    <li><a href="{% url 'swapp:category' cat %}">{{ cat }}</a></li>
+    <a href="{% url 'swapp:category' cat %}"><div class="category"><li>{{ cat }}</li></div></a>
     {% endfor %}
 
 </ul>
+    </div>
 {% endblock %}

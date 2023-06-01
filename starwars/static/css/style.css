@@ -1,12 +1,152 @@
 body{
-    font-family: sans-serif;
+    /*background: url("/static/images/background-2.jpg") top center / 1800px ;*/
+    background-color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+.width{
+    margin: 0 20px;
 }
 h1{
     font-size: 30px;
     margin: 0 auto;
     text-align: center;
 }
-li{
-    list-style: none;
 
+.opening{
+    text-align: center;
+    margin: 0 auto;
+    padding: 50px 38px;
+}
+.opening h3{
+    color: #4bd5ee;
+    text-align: left;
+    font-size: 1.3em ;
+    margin: 0 auto;
+    /*width: 360px;*/
+}
+.star-wars{
+    color: yellow;
+}
+/*@font-face {*/
+/*    font-family: 'Star Jedi';*/
+/*    src: url("/home/monisia/Desktop/starjedi/Starjedi.ttf") format('truetype');*/
+/*}*/
+.star-wars h1{
+    /*font-family: "Star Jedi";*/
+}
+.category{
+    margin: 15px 0;
+    padding: 30px;
+    height: 1.8em;
+    background-color: rgba(255,255, 255, 0.5) ;
+}
+.category li{
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+    vertical-align: center;
+    font-size: 1.6em;
+    color: white;
+
+}
+ul a{
+    text-decoration: none;
+}
+ul{
+    margin: 0 auto;
+    padding: 0;
+}
+/* category.html */
+
+h1.category-name{
+    color: #ffffff;
+    padding: 30px;
+    text-transform: uppercase;
+}
+.category-back button{
+	background-color:transparent;
+	/*border-radius:27px;*/
+	/*border:3px solid #ffffff;*/
+    border: none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1em;
+	padding:10px 15px;
+	text-decoration:none;
+    font-weight: bold;
+}
+.search{
+    /*width: 80%;*/
+    /*border-bottom:2px solid white;*/
+    /*margin: 2em 0;*/
+}
+input{
+    /*background-color: transparent;*/
+    /*border: none;*/
+    /*outline: none;*/
+    padding: 9px 15px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+}
+input::placeholder{
+    color: white;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+div[id^="more"]{
+    display: none;
+}
+.names-list{
+    display: block;
+}
+.names-list .name-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 25px 0px 10px 15px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}
+table{
+    width: 100%;
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+td{
+    color: white;
+    padding: 10px;
+}
+tr:nth-child(even) td{
+    color: black;
+}
+tr:nth-child(even){
+    color: white;
+    font-size: 1em;
+        background-color:#ffec73;
+}
+tr:nth-child(odd){
+    /*background-color: rgba(255,233,24, 0.5);*/
+}
+.more-info{
+    background-color:transparent;
+	/*border-radius:27px;*/
+	/*border:3px solid #ffffff;*/
+    border: none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1em;
+	padding:10px 15px;
+    font-weight: bold;
+    text-decoration: underline;
 }

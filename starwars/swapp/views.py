@@ -20,11 +20,13 @@ def get_swapi(request):
     else:
         return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
 
+
 @cache_page(60 * 15)
 def get_swapi_category(request, cat_name):
     base_url = f'https://swapi.dev/api/{cat_name}/'
     search_query = request.GET.get('search')
     page = request.GET.get('page')
+
     # checks if search parameter exists
     if search_query:
         url = f'{base_url}?search={search_query}'
@@ -35,12 +37,14 @@ def get_swapi_category(request, cat_name):
         url = page
 
     response = requests.get(url)
+
     if response.status_code == 200:
         data = response.json()
         category_results = data['results']
         next_page = data.get('next')
         previous = data.get('previous')
         context = {
+            # 'category_item':  [(key, value) for key, value in category_results.items()],
             'category': category_results,
             'cat_name': cat_name,
             'next': next_page,
@@ -50,6 +54,8 @@ def get_swapi_category(request, cat_name):
         return render(request, 'swapp/category.html', context)
     else:
         return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
+
+
 @cache_page(60 * 15)
 def get_swapi_details(request, cat_name, url_number):
     url = f'https://swapi.dev/api/{cat_name}/{url_number}'
