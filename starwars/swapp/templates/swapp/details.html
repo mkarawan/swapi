@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 {% load static %}
 
 {% block container %}
-        <div class="back">
+
+        <div class="back category-back">
         <button id="goback">
-        ⇦Back</button>
+        &#8249; Back</button>
             </div>
+<table>
     {% for key, value in results %}
-    <li>{{ key }} : {{ value }}</li>
+            <tr>
+                <td>{{ key|underscore }}</td>
+                <td>{{ value|list_unpack|format_date }}</td>
+            </tr>
 
     {% endfor %}
+</table>
 {% endblock %}

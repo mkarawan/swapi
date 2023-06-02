@@ -7,12 +7,18 @@
     {% endblock %}
 
 {% block container %}
-    <div class="width">
-    <ul>
-{% for cat in categories %}
-    <a href="{% url 'swapp:category' cat %}"><div class="category"><li>{{ cat }}</li></div></a>
-    {% endfor %}
 
-</ul>
-    </div>
+<div class="box">
+{% for cat in categories %}
+    <a href="{% url 'swapp:category' cat %}">
+        <div class="category">
+            <div class="img-box">
+            <div class="cat-img"><img src="/static/images/{{ cat }}-red.png" /></div>
+            <div class="cat-name"><p>{{ cat }}</p></div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}</div>
+
+
 {% endblock %}

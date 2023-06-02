@@ -62,7 +62,8 @@ def get_swapi_details(request, cat_name, url_number):
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
-        context = {'results': [(key, value) for key, value in data.items()], 'cat_name': cat_name, 'url_number': url_number}
+        context = {'results': [(key, value) for key, value in data.items()], 'cat_name': cat_name,
+                   'url_number': url_number}
         return render(request, 'swapp/details.html', context)
     else:
         return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")

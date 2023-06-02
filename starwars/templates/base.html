@@ -7,18 +7,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>STAR WARS 🌌</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<div class="width">
 {% block opening %}
 {% endblock %}
-    <div class="star-wars"><h1>STAR WARS KNOWLEDGE BASE</h1></div>
+<div class="star-wars"><img src="{% static 'images/star-wars-logo-red.png' %}" alt="Star Wars Knowledge Base" /></div>
 {% block container %}
 
 {% endblock %}
+
+</div>
 <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 </html>

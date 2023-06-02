@@ -1,6 +1,6 @@
 body{
     /*background: url("/static/images/background-2.jpg") top center / 1800px ;*/
-    background-color: black;
+    background-color: #e0abab;
     font-family: 'Source Sans Pro', sans-serif;
 
 }
@@ -19,7 +19,7 @@ h1{
     padding: 40px 38px 0px 38px;
 }
 .opening h3{
-    color: #4bd5ee;
+    color: #212121;
     text-align: left;
     font-size: 1.3em ;
     margin: 0 auto;
@@ -27,9 +27,12 @@ h1{
 }
 .star-wars{
     margin: 45px 15px 45px 15px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #a03232;
 }
 .star-wars img{
     width: 100%;
+
 }
 /*  category list   */
 a{
@@ -39,7 +42,7 @@ a{
 .category {
     margin: 15px 0;
     padding: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.06);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +62,7 @@ a{
 .category .img-box .cat-name p {
     text-transform: uppercase;
     visibility: visible;
-    color: white;
+    color: #212121;
     font-weight: bold;
     text-align: center;
     margin: 0 auto;
@@ -69,7 +72,7 @@ a{
 
 /* category.html */
 h1.category-name{
-    color: #ffffff;
+    color: #a03232;
     padding: 0 0 40px 0;
     text-transform: uppercase;
 }
@@ -80,13 +83,14 @@ h1.category-name{
     border: none;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#a03232;
 	font-size:1em;
 	padding:10px 15px;
 	text-decoration:none;
     font-weight: bold;
 }
 .search{
+    background-color: #e8caca;
     display: flex;
 }
 .search input{
@@ -96,7 +100,7 @@ h1.category-name{
     background: white;
 }
 .search-results p{
-    color: white;
+    color: #212121;
 }
 button{
     background: none;
@@ -113,7 +117,7 @@ input{
     outline: none;
 }
 input::placeholder{
-    color: white;
+    color: #a03232;
     font-size: 1.2em;
     padding: 0;
     margin: 0;
@@ -128,14 +132,14 @@ div[id^="more"]{
     background-color: transparent;
     border: none;
     outline: none;
-    color: white;
+    color: #212121;
     padding: 25px 0px 10px 15px;
     margin-top: 10px;
     width: 100%;
     text-align: left;
     font-size: 1em;
     font-weight: bold;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #212121;
 }
 table{
     width: 100%;
@@ -143,16 +147,16 @@ table{
     text-transform: capitalize;
 }
 td{
-    color: white;
+    color: #212121;
     padding: 10px;
 }
 tr:nth-child(even) td{
-    color: black;
+    color: white;
 }
 tr:nth-child(even){
     color: white;
     font-size: 1em;
-    background-color:#4bd5ee;
+    background-color:#d97373;
 }
 tr:nth-child(odd){
     /*background-color: rgba(255,233,24, 0.5);*/
@@ -164,44 +168,62 @@ tr:nth-child(odd){
     border: none;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#a03232;
 	font-size:1em;
 	padding:10px 15px;
     font-weight: bold;
     text-decoration: underline;
 }
 .previous-next {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background: #f9f9f9 linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+    background: transparent;
     border-radius:6px;
-	border:1px solid #dcdcdc;
+	border:3px solid #a03232;
 	display:inline-block;
 	cursor:pointer;
-	color:#666666;
+	color:#212121;
 	font-size: 1em;
 	font-weight:bold;
 	padding:7px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
 }
 .previous-next:hover {
     background: #e9e9e9 linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+    color: #a03232 ;
 }
 .previous-next:active {
 	position:relative;
 	top:1px;
 }
 
-
 /*   media queries    */
 
 @media (min-width:1280px) {
+    .opening h3{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .star-wars img{
+        width: 40%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
     .category {
-    margin: 20px 0;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
     position: relative;
-}
+    margin: 20px 20px;
+    width:250px;
+    }
+    .box{
+    padding: 50px 0 500px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    }
 
 .category .img-box img {
     display: flex;
@@ -221,7 +243,8 @@ tr:nth-child(odd){
 }
 
 .category:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.03);
+    box-shadow: -1px 7px 7px -5px rgba(103, 103, 103, 0.4);
     transition: 0.5s;
     transform: translate(0px, -15px);
 }
@@ -233,5 +256,10 @@ tr:nth-child(odd){
 .category:hover .img-box img{
     visibility: hidden;
 }
-
+.width{
+    width: 55%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 50px;
+}
 }
