@@ -67,7 +67,7 @@ a {
 .category .img-box img {
     display: flex;
     justify-content: center;
-    width: 80px;
+    width: 60px;
     margin: 0 10px 0 auto;
 }
 
@@ -328,6 +328,9 @@ footer p {
 
     .search {
         width: 80%;
+    }
+    .category .img-box img {
+        width: 80px;
     }
 }
 
