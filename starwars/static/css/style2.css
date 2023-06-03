@@ -1,265 +1,429 @@
-body{
-    /*background: url("/static/images/background-2.jpg") top center / 1800px ;*/
-    background-color: #e0abab;
+body {
+    background-color: #fcfcfc;
     font-family: 'Source Sans Pro', sans-serif;
-
-}
-.width{
-    margin: 0 20px;
-}
-h1{
-    font-size: 30px;
-    margin: 0 auto;
-    text-align: center;
+    margin: 0;
 }
 
-.opening{
+.width {
+    position: relative;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 0 auto;
+    text-align: center;
+    color: #212121;
+}
+
+.opening {
     text-align: center;
     margin: 0 auto;
-    padding: 40px 38px 0px 38px;
+    padding: 20px 20px;
 }
-.opening h3{
+
+.opening h3 {
     color: #212121;
     text-align: left;
-    font-size: 1.3em ;
+    font-size: 1.3em;
     margin: 0 auto;
-    /*width: 360px;*/
 }
-.star-wars{
-    margin: 45px 15px 45px 15px;
+
+.star-wars {
+    margin: 0px 15px 45px 15px;
     padding-bottom: 15px;
     border-bottom: 3px solid #a03232;
 }
-.star-wars img{
-    width: 100%;
 
+.star-wars img {
+    width: 100%;
 }
-/*  category list   */
-a{
+
+a {
     text-decoration: none;
+}
+
+.box {
+    margin: 20px 20px;
+    padding-bottom: 40px;
 }
 
 .category {
     margin: 15px 0;
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: #a03232;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }
+
 .category .img-box {
     display: flex;
     align-items: center;
     margin-right: 40px;
 }
+
 .category .img-box img {
     display: flex;
     justify-content: center;
-    width: 90px;
+    width: 80px;
     margin: 0 10px 0 auto;
 }
 
 .category .img-box .cat-name p {
     text-transform: uppercase;
     visibility: visible;
-    color: #212121;
+    color: white;
     font-weight: bold;
     text-align: center;
     margin: 0 auto;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
-/* category.html */
-h1.category-name{
+.api-list {
+    padding: 10px 0 30px 0;
+}
+
+.names-list button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.names-list button img.down {
+    width: 15px;
+    vertical-align: center;
+    visibility: visible;
+}
+
+.category-width {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 0 60px 0;
+}
+
+h1.category-name {
     color: #a03232;
     padding: 0 0 40px 0;
     text-transform: uppercase;
 }
-.category-back button, #goback{
-	background-color:transparent;
-	/*border-radius:27px;*/
-	/*border:3px solid #ffffff;*/
-    border: none;
-	display:inline-block;
-	cursor:pointer;
-	color:#a03232;
-	font-size:1em;
-	padding:10px 15px;
-	text-decoration:none;
-    font-weight: bold;
-}
-.search{
+
+.search {
     background-color: #e8caca;
     display: flex;
+    border-radius: 20px;
 }
-.search input{
+
+.search input {
     width: 100%;
 }
-.search input:focus{
+
+.search input:focus {
     background: white;
+    border-radius: 20px;
+    box-shadow: inset 0 1px 2px grey;
 }
-.search-results p{
+
+.search-results p {
     color: #212121;
 }
-button{
+
+button {
     background: none;
     border: none;
     outline: none;
 }
-button img{
+
+button img {
     width: 40px;
 }
-input{
+
+input {
     padding: 9px 15px;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
     outline: none;
 }
-input::placeholder{
+
+input::placeholder {
     color: #a03232;
     font-size: 1.2em;
     padding: 0;
     margin: 0;
 }
-div[id^="more"]{
+
+div[id^="more"] {
     display: none;
+    width: 95%;
+    margin-left: auto;
+    margin-right: 0;
 }
-.names-list{
-    display: block;
+
+.names-list {
+    display: flex;
 }
-.names-list .name-button{
+
+.names-list .name-button {
     background-color: transparent;
     border: none;
     outline: none;
     color: #212121;
-    padding: 25px 0px 10px 15px;
+    padding: 25px 0 10px 15px;
     margin-top: 10px;
     width: 100%;
     text-align: left;
     font-size: 1em;
     font-weight: bold;
-    border-bottom: 2px solid #212121;
+    border-bottom: 1px solid #212121;
 }
-table{
+
+table {
     width: 100%;
     margin: 10px 0;
     text-transform: capitalize;
 }
-td{
-    color: #212121;
-    padding: 10px;
+
+table {
+    border-spacing: 0 10px;
 }
-tr:nth-child(even) td{
-    color: white;
+
+tr {
+    background-color: white;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
-tr:nth-child(even){
-    color: white;
-    font-size: 1em;
-    background-color:#d97373;
+
+td {
+    color: #383838;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
 }
-tr:nth-child(odd){
-    /*background-color: rgba(255,233,24, 0.5);*/
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    margin-top: 10px;
 }
-.more-info{
-    background-color:transparent;
-	/*border-radius:27px;*/
-	/*border:3px solid #ffffff;*/
+
+footer p {
+    color: #a03232;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+.previous-next, .category-back {
+    background-color: #f2f2f2;
     border: none;
-	display:inline-block;
-	cursor:pointer;
-	color:#a03232;
-	font-size:1em;
-	padding:10px 15px;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 35px;
+    text-decoration: none;
     font-weight: bold;
-    text-decoration: underline;
-}
-.previous-next {
-    background: transparent;
-    border-radius:6px;
-	border:3px solid #a03232;
-	display:inline-block;
-	cursor:pointer;
-	color:#212121;
-	font-size: 1em;
-	font-weight:bold;
-	padding:7px 24px;
-	text-decoration:none;
-}
-.previous-next:hover {
-    background: #e9e9e9 linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-    color: #a03232 ;
-}
-.previous-next:active {
-	position:relative;
-	top:1px;
 }
 
-/*   media queries    */
+.category-back {
+    margin-bottom: 15px;
+}
 
-@media (min-width:1280px) {
-    .opening h3{
+.previous-next::before, .category-back::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: #a03232;
+    color: #212121;
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+}
+
+.previous-next:hover::before, .category-back:hover::before {
+    transform: scaleX(1);
+}
+
+.previous-next:focus::before, .category-back:focus::before {
+    transform: scaleX(1);
+}
+
+/*  ----------------------- media queries   ------------------------------- */
+
+
+@media (min-width: 450px) {
+    body {
+        background: url("/static/images/background-2.jpg") top center / 1800px fixed;
+    }
+
+    .width {
+        background-color: #fcfcfc;
+        margin: 0 auto;
+        box-shadow: 0 4px 9px 1px rgba(0, 0, 0, 1);
+        top: 0;
+        width: 90%;
+    }
+
+    .opening h3 {
         text-align: center;
         margin: 0 auto;
     }
-    .star-wars img{
-        width: 40%;
+
+    .star-wars img {
+        width: 80%;
         margin: 0 auto;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
+    .box {
+        margin: 30px 50px;
+    }
 
+    .category-width {
+        width: 80%;
+    }
+}
+
+@media (min-width: 595px) {
+    .width {
+        width: 80%;
+    }
+
+    .box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     .category {
-    padding: 10px;
-    position: relative;
-    margin: 20px 20px;
-    width:250px;
-    }
-    .box{
-    padding: 50px 0 500px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+        margin: 20px 10px;
     }
 
-.category .img-box img {
-    display: flex;
-    justify-content: center;
-    width: 90px;
-    margin: 0 auto;
+    .category .img-box {
+        margin: 0;
+        display: block;
+    }
+
+    .star-wars img {
+        max-width: 400px;
+    }
+
+    .opening {
+        padding: 40px 38px 45px 38px;
+    }
+
+    h1.category-name {
+        font-size: 2em;
+    }
+
+    .category-width {
+        width: 75%;
+    }
+
+    .search {
+        width: 80%;
+    }
 }
 
-.category .img-box .cat-name p {
-    visibility: hidden;
-    text-align: center;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@media (min-width: 900px) {
+    .opening {
+        padding-top: 50px;
+    }
+
+    h1 {
+        padding-top: 10px;
+    }
+
+    .width {
+        width: 70%;
+    }
+
+    .search {
+        width: 60%;
+    }
+
 }
 
-.category:hover {
-    background-color: rgba(0, 0, 0, 0.03);
-    box-shadow: -1px 7px 7px -5px rgba(103, 103, 103, 0.4);
-    transition: 0.5s;
-    transform: translate(0px, -15px);
+@media (min-width: 1280px) {
+    .box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 30px;
+    }
+
+    .category {
+        margin: 20px 20px;
+        height: 90px;
+    }
+
+    .star-wars img {
+        max-width: 500px;
+    }
+
+    h1 {
+        padding-bottom: 30px;
+        font-size: 1.8em;
+    }
+
+    .category .img-box .cat-name p {
+        visibility: hidden;
+        text-align: center;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #212121;
+    }
+
+    .category-width {
+        width: 70%;
+    }
+
+    .category:hover {
+        background-color: white;
+        box-shadow: -1px 7px 7px -5px rgba(103, 103, 103, 0.4);
+        transition: 0.5s;
+        transform: translate(0px, -15px);
+    }
+
+    .category:hover .img-box .cat-name p {
+        visibility: visible;
+    }
+
+    .category:hover .img-box img {
+        visibility: hidden;
+    }
+
+    h1.category-name {
+        font-size: 2.5em;
+    }
+
+    .names-list button img.down {
+        visibility: hidden;
+    }
+
+    .names-list:hover .name-button {
+        color: #a03232;
+        border-bottom: 2px solid #a03232;
+    }
+
+    .search {
+        width: 50%;
+    }
+
 }
 
-.category:hover .img-box .cat-name p {
-    visibility: visible;
-}
+@media (min-width: 1500px) {
+    .width {
+        width: 55%;
+    }
 
-.category:hover .img-box img{
-    visibility: hidden;
-}
-.width{
-    width: 55%;
-    margin: 0 auto;
-    background-color: white;
-    padding: 50px;
-}
+
 }

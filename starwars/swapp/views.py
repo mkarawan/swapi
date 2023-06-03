@@ -1,11 +1,10 @@
-import re
 import requests as requests
 from django.shortcuts import render, redirect
-import json
 from django.http import HttpResponseServerError
 from django.views.decorators.cache import cache_page
 
 
+# renders all 6 categories from swapi.dev/api/
 @cache_page(60 * 15)
 def get_swapi(request):
     url = 'https://swapi.dev/api/'
@@ -18,9 +17,10 @@ def get_swapi(request):
                    }
         return render(request, 'swapp/index.html', context)
     else:
-        return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
+        return HttpResponseServerError("Error fetching data from SWAPI")
 
 
+# renders data from swapi based on category
 @cache_page(60 * 15)
 def get_swapi_category(request, cat_name):
     base_url = f'https://swapi.dev/api/{cat_name}/'
@@ -35,7 +35,6 @@ def get_swapi_category(request, cat_name):
     # checks if page parameter exists
     if page:
         url = page
-
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -44,7 +43,6 @@ def get_swapi_category(request, cat_name):
         next_page = data.get('next')
         previous = data.get('previous')
         context = {
-            # 'category_item':  [(key, value) for key, value in category_results.items()],
             'category': category_results,
             'cat_name': cat_name,
             'next': next_page,
@@ -53,9 +51,10 @@ def get_swapi_category(request, cat_name):
         }
         return render(request, 'swapp/category.html', context)
     else:
-        return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
+        return HttpResponseServerError("Error fetching data from SWAPI")
 
 
+# renders data for a specific item from category
 @cache_page(60 * 15)
 def get_swapi_details(request, cat_name, url_number):
     url = f'https://swapi.dev/api/{cat_name}/{url_number}'
@@ -63,7 +62,7 @@ def get_swapi_details(request, cat_name, url_number):
     if response.status_code == 200:
         data = response.json()
         context = {'results': [(key, value) for key, value in data.items()], 'cat_name': cat_name,
-                   'url_number': url_number}
+                   'url_number': url_number, 'data': data}
         return render(request, 'swapp/details.html', context)
     else:
-        return HttpResponseServerError("Błąd podczas pobierania danych z API SWAPI")
+        return HttpResponseServerError("Error fetching data from SWAPI")

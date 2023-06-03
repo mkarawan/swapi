@@ -2,71 +2,90 @@
 {% load static %}
 {% load custom_filters %}
 
+{% block opening %}
+    <div class="opening"><h3></h3></div>
+{% endblock %}
 
 {% block container %}
-    <h1 class="category-name">{{ cat_name }}</h1>
-{# back button #}
-    <div class="category-back">
-        <a href="{% url 'swapp:start' %}"><button>&#8249; Back</button></a>
-    </div>
+    <div class="category-width">
+        <h1 class="category-name">{{ cat_name }}</h1>
+        {# back button #}
+
+        <a href="{% url 'swapp:start' %}">
+            <button class="category-back">&#8249; Back</button>
+        </a>
 
 
-{#  searching  #}
+        {#  searching  #}
 
-<form action="{% url 'swapp:category' cat_name %}" method="get">
-    <div class="search"><input type="text" name="search" placeholder="Search here...">
-                        <button type="submit"><img src="{% static 'images/search.png' %}"></button>
-    </div>
-</form>
-{% if search_query %}
-  <div class="search-results"><p>Search results for: {{ search_query }}</p></div>
-{% endif %}
+        <form action="{% url 'swapp:category' cat_name %}" method="get">
+            <div class="search"><input type="text" name="search" placeholder="Search here...">
+                <button type="submit"><img src="{% static 'images/millennium-falcon.png' %}"></button>
+            </div>
+        </form>
+        {% if search_query %}
+            <div class="search-results"><p>Search results for: {{ search_query }}</p></div>
+        {% endif %}
 
-{#  api list  #}
+        {#  api list  #}
+        <div class="api-list">
+            {% for item in category %}
+                {#     checks if key is "title" or "name"    #}
+                {% if item.title %}
+                    <div class="names-list">
+                        <button class="name-button" onclick="showHide({{ forloop.counter }})">{{ item.title }}
+                            <img class="down" src="{% static 'images/down.png' %}"></button>
+                    </div>
+                    {#     more info      #}
+                    <div id="more{{ forloop.counter }}">
+                        <table>
+                            {% for key, value in item|sliced_dict_films %}
 
-{% for item in category %}
+                                <tr>
+                                    <td><strong>{{ key|underscore }}</strong></td>
+                                    <td>{{ value|cut|capfirst }}</td>
+                                </tr>
 
-    {% if item.title %}
-        <div class="names-list"><button class="name-button" onclick="showHide({{ forloop.counter }})">{{ item.title }}</button></div>
+                            {% endfor %}
+                        </table>
+                        <a href="{% url 'swapp:details' cat_name item.url|extract_id %}">
+                            <button class="category-back">More info</button>
+                        </a>
+                    </div>
+                {#       if key is "name"         #}
+                {% else %}
+                    <div class="names-list">
+                        <button class="name-button" onclick="showHide({{ forloop.counter }})">{{ item.name }}
+                            <img class="down" src="{% static 'images/down.png' %}"></button>
+                    </div>
+                    {#     more info      #}
+                    <div id="more{{ forloop.counter }}">
+                        <table>
+                            {% for key, value in item|sliced_dict %}
 
-        <div id="more{{ forloop.counter }}">
-        <table>
-            {% for key, value in item|sliced_dict_films %}
+                                <tr>
+                                    <td><strong>{{ key|underscore }}</strong>
+                                    <td>{{ value }}</td>
+                                </tr>
 
-                <tr>
-                    <td>{{ key|underscore }}</td><td>{{ value|slice:"100" }}</td>
-                </tr>
-
-        {% endfor %}
-        </table>
-                <a href="{% url 'swapp:details' cat_name item.url|extract_id %}"><button class="more-info">More info</button></a>
+                            {% endfor %}
+                        </table>
+                        <a href="{% url 'swapp:details' cat_name item.url|extract_id %}">
+                            <button class="category-back">More info</button>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
 
-    {% else %}
-             <div class="names-list"><button class="name-button" onclick="showHide({{ forloop.counter }})">{{ item.name }}</button></div>
-
-                <div id="more{{ forloop.counter }}" >
-        <table>
-            {% for key, value in item|sliced_dict %}
-
-                <tr>
-                    <td>{{ key|underscore }}</td> <td>{{ value }}</td>
-                </tr>
-
-            {% endfor %}
-        </table>
-                    <a href="{% url 'swapp:details' cat_name item.url|extract_id %}"><button class="more-info">More info</button></a>
-                </div>
-    {% endif %}
-{% endfor %}
-
-{#  pagination  #}
-<form action="{% url 'swapp:category' cat_name %}" method="get">
-  {% if previous %}
-    <button class="previous-next" type="submit" name="page" value="{{ previous }}">Previous</button>
-  {% endif %}
-  {% if next %}
-    <button class="previous-next" type="submit" name="page" value="{{ next }}">Next</button>
-  {% endif %}
-</form>
+        {#  pagination  #}
+        <form action="{% url 'swapp:category' cat_name %}" method="get">
+            {% if previous %}
+                <button class="previous-next" type="submit" name="page" value="{{ previous }}">Previous</button>
+            {% endif %}
+            {% if next %}
+                <button class="previous-next" type="submit" name="page" value="{{ next }}">Next</button>
+            {% endif %}
+        </form>
+    </div>
 {% endblock %}

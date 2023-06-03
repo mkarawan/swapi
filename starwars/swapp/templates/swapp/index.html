@@ -2,23 +2,24 @@
 {% load static %}
 
 
-    {% block opening %}
-        <div class="opening"> <h3>A long time ago in a galaxy far, far away…</h3></div>
-    {% endblock %}
+{% block opening %}
+    <div class="opening"><h3>A long time ago in a galaxy far, far away…</h3></div>
+{% endblock %}
 
 {% block container %}
+    <h1>Choose a category:</h1>
+    <div class="box">
+        {#  api category names  #}
+        {% for cat in categories %}
+            <a href="{% url 'swapp:category' cat %}">
 
-<div class="box">
-{% for cat in categories %}
-    <a href="{% url 'swapp:category' cat %}">
-        <div class="category">
-            <div class="img-box">
-            <div class="cat-img"><img src="/static/images/{{ cat }}-red.png" /></div>
-            <div class="cat-name"><p>{{ cat }}</p></div>
-            </div>
-        </div>
-    </a>
-    {% endfor %}</div>
-
+                <div class="category">
+                    <div class="img-box">
+                        <div class="cat-img"><img src="/static/images/{{ cat }}.png"/></div>
+                        <div class="cat-name"><p>{{ cat }}</p></div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}</div>
 
 {% endblock %}

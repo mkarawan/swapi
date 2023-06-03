@@ -15,14 +15,19 @@
 <body>
 
 <div class="width">
-{% block opening %}
-{% endblock %}
-<div class="star-wars"><img src="{% static 'images/star-wars-logo-red.png' %}" alt="Star Wars Knowledge Base" /></div>
-{% block container %}
+    {% block opening %}
+    {% endblock %}
+    <div class="star-wars"><a href="{% url 'swapp:start' %}">
+        <img src="{% static 'images/star-wars-logo-red.png' %}" alt="Star Wars Knowledge Base"/></a></div>
+    {% block container %}
 
-{% endblock %}
-
+    {% endblock %}
+    <footer>
+        <p>&#169; 2023 Created by Monika Karawan</p>
+        <p>Powered by SWAPI: <a href="https://swapi.dev/">swapi.dev</a></p>
+    </footer>
 </div>
+
 <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 </html>

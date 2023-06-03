@@ -2,19 +2,30 @@
 {% load custom_filters %}
 {% load static %}
 
+{% block opening %}
+    <div class="opening"><h3></h3></div>
+{% endblock %}
+
 {% block container %}
+    <div class="category-width">
 
-        <div class="back category-back">
-        <button id="goback">
-        &#8249; Back</button>
-            </div>
-<table>
-    {% for key, value in results %}
-            <tr>
-                <td>{{ key|underscore }}</td>
-                <td>{{ value|list_unpack|format_date }}</td>
-            </tr>
+        <h1 class="category-name">{{ data|details }}</h1>
 
-    {% endfor %}
-</table>
+        <button id="goback" class="category-back">
+            &#8249; Back
+        </button>
+
+        <div class="api-list">
+            <table>
+                {% for key, value in results %}
+                    <tr>
+
+                        <td><strong>{{ key|underscore }}</strong></td>{# keys with deleted undersocre #}
+                        <td>{{ value|list_unpack|format_date }}</td>{# values, if url - unpacked, if date - formatted #}
+                    </tr>
+
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 {% endblock %}

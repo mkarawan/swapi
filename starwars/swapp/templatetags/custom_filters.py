@@ -2,6 +2,7 @@ import itertools
 import requests as requests
 from django import template
 import re
+
 register = template.Library()
 
 
@@ -59,7 +60,7 @@ def underscore(string):
     return string.replace("_", " ")
 
 
-# custom filter to extract date from 'created' and 'edited' values
+# custom filter to extract date and time from 'created' and 'edited' values
 @register.filter(name='format_date')
 def format_date(string):
     if isinstance(string, str) and string.startswith('20'):
@@ -67,3 +68,22 @@ def format_date(string):
         return formatted_date
     else:
         return string
+
+
+# custom filter to cut first two sentences from opening crawl in api/films
+@register.filter(name='cut')
+def cut(string):
+    if isinstance(string, str) and len(string) > 100:
+        sentence_list = string.split('.')
+        result = '. '.join(sentence_list[:2])
+        return result + "..."
+    else:
+        return string
+
+
+# custom filter to extract name or title for details.html
+@register.filter(name='details')
+def details(values):
+    for i in values.keys():
+        if i == "name" or "title":
+            return values[i]
