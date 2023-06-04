@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'swapp.apps.SwappConfig',
+    'swapp.templatetags.custom_filters',
 
-    'swapp.templatetags.custom_filters'
 
 ]
 
