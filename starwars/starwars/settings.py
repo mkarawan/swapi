@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_pn1q6owh5-cy)a-bom^94+i2d4rs5lq0))^$0ha1n76tavz4c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['star-wars-swapi.herokuapp']
 
